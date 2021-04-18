@@ -1,0 +1,93 @@
+/* Custom Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+/* Variables */
+
+:root {
+    --primary: #4f505a;
+    --secondary: #ebebeb;
+    --warning: #da0d41;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: var(--primary);
+    font-family: "Nunito";
+}
+
+body {
+    background-color: #fafafa;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error {
+    color: var(--warning);
+    font-size: 16px;
+    margin: 16px 0;
+    text-transform: capitalize;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+nav a {
+    padding-right: 10px;
+    border: 1px solid var(--primary);
+    width: 100px;
+    padding: 7px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease-in-out
+}
+
+nav a:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+nav a:nth-of-type(2) {
+    margin: 0 7px;
+}
+
+.login {
+    width: 600px;
+    margin: 5% auto;
+}
+
+form input, textarea {
+    padding: 6px;
+    width: 100%;
+    display: block;
+    border: 2px solid var(--primary);
+    margin-bottom: 7px;
+}
+
+.log_title {
+    margin-bottom: 12px;
+}
+
+form button {
+    width: 130px;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    margin-top: 3%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
+}

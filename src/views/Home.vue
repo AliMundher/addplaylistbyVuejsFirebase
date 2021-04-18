@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>All PlayLists</h2>
+    <h3 v-if="error">Could not fetch data</h3>
+    <div v-if="documents">
+      <ListView :playlists="documents" />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import getCollection from "../composables/getCollection";
+import ListView from "../components/ListView";
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  components: { ListView },
+  setup() {
+    const { documents, error } = getCollection("PlayList");
+
+    return { documents, error };
   }
-}
+};
 </script>
+
+<style>
+.home {
+  margin-top: 5%;
+}
+</style>
