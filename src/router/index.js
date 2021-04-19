@@ -4,9 +4,10 @@ import Login from '../views/auth/Login'
 import Register from '../views/auth/Register'
 import CreatePlayList from '../views/playLists/CreatePlayList'
 import Details from '../views/playLists/Details'
-import { auth } from '../firebase/config'
+import UserPlaylist from '../views/playLists/UserPlayList'
 
 // route guard
+import { auth } from '../firebase/config'
 const requiredAuth = (to, from, next) => {
   let user = auth.currentUser;
   if (!user) {
@@ -39,7 +40,8 @@ const routes = [
     path: '/playlist/create',
     name: 'CreatePlayList',
     component: CreatePlayList,
-    beforeEnter: requiredAuth
+    beforeEnter: requiredAuth,
+
   },
   {
     path: '/playlist/details/:id',
@@ -47,6 +49,14 @@ const routes = [
     component: Details,
     beforeEnter: requiredAuth,
     props: true
+  },
+  {
+    path: '/playlist/user',
+    name: 'Userplaylist',
+    component: UserPlaylist,
+    beforeEnter: requiredAuth,
+
+
   }
 ]
 

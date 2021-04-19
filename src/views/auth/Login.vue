@@ -25,16 +25,16 @@ export default {
   name: "login",
   setup() {
     const { isPending, error, login } = useLogin();
+    const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const router = useRouter();
 
     const handelSubmit = async () => {
-      await login(email.value, password.value);
+      const res = await login(email.value, password.value);
 
       if (!error.value) {
-        router.push({ name: "Home" });
-        console.log("user log in");
+        router.push({ name: "Userplaylist" });
+        // console.log("user log in");
       }
     };
     return { email, password, handelSubmit, error, isPending };

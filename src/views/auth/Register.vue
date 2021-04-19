@@ -26,11 +26,13 @@
 <script>
 import { ref } from "vue";
 import { useRegister } from "@/composables/Register";
+import { useRouter } from "vue-router";
 
 export default {
   name: "login",
   setup() {
     const { isPending, error, register } = useRegister();
+    const router = useRouter();
     const displayName = ref("");
     const email = ref("");
     const password = ref("");
@@ -43,7 +45,8 @@ export default {
       );
 
       if (!error.value) {
-        console.log("user register");
+        // console.log("user register");
+        router.push({ name: "Userplaylist" });
       }
     };
     return { email, password, handelSubmit, error, isPending, displayName };
